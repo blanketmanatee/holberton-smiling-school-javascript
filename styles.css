@@ -1,0 +1,147 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+header {
+    background-image: url(images/pic_1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 7.5rem;
+    line-height: 151px;
+}
+
+.badge-register {
+    background: #C271FF;
+    border-radius: 22px;
+}
+
+.purple-text {
+    color:#C271FF;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.fs-18 {
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 27px;
+}
+
+.fs-16 {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.fs-32 {
+    font-size: 32px;
+    line-height: 40px;
+}
+
+.fs-14 {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 600px;
+}
+
+.fs-16heavy {
+    font-size: 16;
+    line-height: 20px;
+    font-weight: 700;
+}
+
+.fs-12 {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 15px;
+}
+
+.badge-register:hover {
+    opacity: 0.9;
+}
+
+.carousel-innerpurple {
+    background-color: #C271FF;
+}
+
+.carousel-control-prev-icon {
+    background-image: url(images/arrow_white_left.png);
+    background-repeat: no-repeat;
+    height: 53px;
+    width: 63px;
+}
+
+.carousel-control-next-icon {
+    background-image: url(images/arrow_white_right.png);
+    background-repeat: no-repeat;
+    height: 53px;
+    width: 63px;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+    background-color: #C271FF;
+    color: #FFFFFF;
+    font-size: 22px;
+    line-height: 34px;
+    font-weight: normal;
+    height: 392px;
+}
+
+.blockquote-footer {
+    color: #FFFFFF;
+}
+
+.smallpurp {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 27px;
+    color:#C271FF;
+}
+
+[class^='holberton_school-icon-ic'] {
+    color: #FFFFFF;
+    font-size: 30px;
+}
+
+.loader {
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #C271FF;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {  
+    h1 {font-size:2rem;} /*1rem = 16px*/
+  }
+   
+  /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+  @media (min-width: 768px) {  
+    h1 {font-size:4rem;} /*1rem = 16px*/
+  }
+   
+  /* Large devices (desktops, 992px and up) */
+  @media (min-width: 992px) { 
+    h1 {font-size:7.5rem;} /*1rem = 16px*/
+  }
+   
+  /* Extra large devices (large desktops, 1200px and up) */
+  @media (min-width: 1200px) {  
+    h1 {font-size:7.5rem;} /*1rem = 16px*/    
+  }
