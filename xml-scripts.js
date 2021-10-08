@@ -32,7 +32,7 @@ function loader(active, item) {
 
 function getQuoteData () {
     var settings = {
-        "url": "https://smileschool-api.hbtn.info/quotes",
+        "url": "https://smileschool-api.hbtn.info/xml/quotes",
         "method": "GET",
         "content-type": "application/javascript",
         "beforeSend": loader(true),
@@ -152,7 +152,7 @@ function tutCarousel (item, x) {
 
 function getTutData () {
     var settings = {
-        "url": "https://smileschool-api.hbtn.info/popular-tutorials",
+        "url": "https://smileschool-api.hbtn.info/xml/popular-tutorials",
         "method": "GET",
         "content-type": "application/javascript",
         "beforeSend": loader(true),
@@ -270,7 +270,7 @@ function latestCarousel (item, x) {
 
 function getLatestData () {
     var settings = {
-        "url": "https://smileschool-api.hbtn.info/latest-videos",
+        "url": "https://smileschool-api.hbtn.info/xml/latest-videos",
         "method": "GET",
         "content-type": "application/javascript",
         "beforeSend": loader(true),
