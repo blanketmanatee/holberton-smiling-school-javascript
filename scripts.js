@@ -6,7 +6,7 @@ function quoteCarousel (item, x) {
         active = "active";
     }
     $("#carousel-inner").append(`
-    <div id="quotecarousel" class="carousel slide" data-ride="carousel"><div class="carousel-item ${active}">
+    <div class="carousel-item ${active}">
     <div class="row justify-content-around">
         <div class="col-sm-1">
             <img class="rounded-circle mx-auto my-3 d-block" height="150" width="150" src="${item.pic_url}" alt="">
@@ -16,6 +16,7 @@ function quoteCarousel (item, x) {
             <p><span class="font-weight-bold">${item.name}</span></p>
         </div>
     </div>
+    
     `);
     }
 
