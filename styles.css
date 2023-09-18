@@ -1,116 +1,129 @@
+
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans Pro', 'Coiny';
 }
-
-header {
-    background-image: url(images/pic_1.jpg);
-    background-position: center;
+.hero-section {
+    background: url("/images/pic_1.jpg") no-repeat;
+    /* background-repeat: no-repeat; */
     background-size: cover;
-    background-repeat: no-repeat;
+    height: 1093px;
 }
 
-h1 {
-    font-weight: 700;
-    font-size: 7.5rem;
-    line-height: 151px;
+.hero-section-pricing {
+    background: url("images/pic_2.jpg") no-repeat;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    /* height: 1093px; */
 }
 
-.badge-register {
-    background: #C271FF;
-    border-radius: 22px;
+.courses-section {
+    background: url("images/pic_3.jpg") no-repeat;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+    /* height: 1093px; */
+}
+.hero-section-content {
+    margin-top: 10em;
 }
 
-.purple-text {
-    color:#C271FF;
-    font-size: 32px;
-    line-height: 40px;
-    text-align: center;
-    font-weight: 700;
+
+/* Header Section
+    ==================*/
+
+ .iconMenu {
+    display: none;
+}
+.logo-smile {
+    width: 36.39px;
+    height: 29.46px;
 }
 
-.fs-18 {
-    font-size: 18px;
-    font-weight: 900;
-    line-height: 27px;
+.nav-button {
+    display: none;
 }
 
-.fs-16 {
-    font-size: 16px;
-    line-height: 24px;
+.logo-text {
+    width: 112.83px;
+    height: 39px;
+    padding-left: 18px
 }
 
-.fs-32 {
-    font-size: 32px;
-    line-height: 40px;
+.font-smileschool {
+    font: Coiny;
+}
+.pro-section{
+    margin-top: 5em;
+    margin-bottom: 3em;
 }
 
-.fs-14 {
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: 600px;
+.hero-sec-title {
+    font-size: 120px;
 }
 
-.fs-16heavy {
-    font-size: 16;
-    line-height: 20px;
-    font-weight: 700;
+.register-btn {
+    background-color: #C272FF;
 }
 
-.fs-12 {
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 15px;
-}
-
-.badge-register:hover {
+.register-btn:hover {
     opacity: 0.9;
+    
 }
 
-.carousel-innerpurple {
-    background-color: #C271FF;
+.learn-span {
+    color:#C272FF;
 }
 
-.carousel-control-prev-icon {
-    background-image: url(images/arrow_white_left.png);
-    background-repeat: no-repeat;
-    height: 53px;
-    width: 63px;
+.profile-img {
+    width: 150px;
+    height: 150px;
 }
 
-.carousel-control-next-icon {
-    background-image: url(images/arrow_white_right.png);
-    background-repeat: no-repeat;
-    height: 53px;
-    width: 63px;
-}
-
-.card-horizontal {
-    display: flex;
-    flex: 1 1 auto;
-    background-color: #C271FF;
-    color: #FFFFFF;
-    font-size: 22px;
-    line-height: 34px;
+.hero-quote {
+    height: 70px;
+    font-family: Coiny;
+    font-style: normal;
     font-weight: normal;
-    height: 392px;
+    font-size: 32px;
+    line-height: 35px;
+    text-align: center;
+    width: 480px;
+
 }
 
-.blockquote-footer {
-    color: #FFFFFF;
+/* Carousel Section
+==================*/
+
+.carousel-section {
+    background-color: #C271FF;
 }
 
-.smallpurp {
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 27px;
-    color:#C271FF;
+.carousel-img {
+    width: 160px;
+    height: 160px;
 }
 
-[class^='holberton_school-icon-ic'] {
-    color: #FFFFFF;
-    font-size: 30px;
+.arrow-icon {
+    position: absolute;
+    height: 52.04px;
+    top: 53px;
 }
 
+.carousel-purple {
+    color: #C271FF;
+}
+
+.video-card {
+    width: 255px;
+    height: 400px;
+}
+
+.play-button {
+    position: absolute;
+    right: 96px;
+    top: 39px;
+}
+/* load Section
+==================*/
 .loader {
     border: 10px solid #f3f3f3;
     border-top: 10px solid #C271FF;
@@ -125,23 +138,39 @@ h1 {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+/* Footer Section
+==================*/
 
-/* Small devices (landscape phones, 544px and up) */
-@media (min-width: 544px) {  
-    h1 {font-size:2rem;} /*1rem = 16px*/
-  }
-   
-  /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
-  @media (min-width: 768px) {  
-    h1 {font-size:4rem;} /*1rem = 16px*/
-  }
-   
-  /* Large devices (desktops, 992px and up) */
-  @media (min-width: 992px) { 
-    h1 {font-size:7.5rem;} /*1rem = 16px*/
-  }
-   
-  /* Extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) {  
-    h1 {font-size:7.5rem;} /*1rem = 16px*/    
-  }
+
+/* Media Queries
+==================*/
+
+@media (max-width: 576px) {
+    .hero-section {
+        height: 1386px;
+    }
+
+    .iconMenu {
+        display: block;
+        font-size: 34px;
+    }
+
+    .nav-button {
+        display: block;
+        position: absolute;
+        left: 10px;
+    }
+
+    .nav-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header {
+        align-items: center;
+    }
+
+    .hero-sec-title {
+        font-size: 88px;
+    }
+}

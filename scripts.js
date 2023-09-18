@@ -1,295 +1,130 @@
-
-//QUOTE CAROUSEL
-function quoteCarousel (item, x) {
-    let active = ""
-    if (!x) {
-        active = "active";
-    }
-    $("#carousel-inner").append(`
-    <div class="carousel-item ${active}">
-    <div class="row justify-content-around">
-        <div class="col-sm-1">
-            <img class="rounded-circle mx-auto my-3 d-block" height="150" width="150" src="${item.pic_url}" alt="">
-        </div>
-        <div class="col-sm-6 mx-3">
-        <p>${item.text}</p>
-            <p><span class="font-weight-bold">${item.name}</span></p>
-        </div>
-    </div>
-    
-    `);
-    }
-
-    //LOADER
-function loader(active, item) {
-    if (active) {
-        $(item).wrap('<div class="loader"></div>');
+function isLoaded(status, element) {
+    if(status) {
+      $(element).wrap('<div class="loader"></div>');
     } else {
-        $(item).unwrap();
+      $(element).unwrap();
     }
-}
-
-//AJAX
-
-function getQuoteData () {
-    var settings = {
-        "url": "https://smileschool-api.hbtn.info/quotes",
-        "method": "GET",
-        "content-type": "application/javascript",
-        "beforeSend": loader(true),
-        "success": function(result) {
-            $("#carousel-inner").empty();
-            loader(false, "#carousel-inner");
-            result.forEach((item, x) => {
-                quoteCarousel(item, x);
-            });
-        },
-    };
-    $.ajax(settings).done(function(response) {
-        let response1 = response[0];
-        let response2 = response[1];
-        quoteCarousel(response1, "#carousel-inner");
-    });
-}
-
-$(document).ready(function() {
-    getQuoteData();
-})
-
-// VIDEO CAROUSEL
-function tutCarousel (item, x) {
-    let active = ""
-    if (!x) {
+  }
+  
+  function carouselLoader(item, i) {
+      let active = ""
+      if (!i) {
         active = "active";
-    }
-    $("#popularcarousel").append(`<div class="carousel-item ${active}">
-    <div class="row justify-content-center">
-        <div class="col">
-            <div class="mx-1">
-                <div class="card mx-auto my-3">
-                    <img class="card-img-top" src="${item.thumb_url}" width="245" height="154">
-                    <img class="play-img" src="images/play.png" width="64" height="64">
-                        <div class="card-body">
-                            <p class="fs-16heavy">"${item.title}"</p><span class="text-secondary font-14 font-weight-normal">${item["sub-title"]}</span>
-                                <div class="row justify-content-start font-14 smallpurp">
-                                    <div class="col-2">
-                                        <img src="${item.author_pic_url}" class="rounded-circle" width="30" height="30">
-                                    </div>
-                                    <div class="col mt-1">
-                                    ${item.author}
-                                    </div>
-                                </div>
-                    <div class="row justify-content-between mt-2">
-                        <div class="col">
-                            <img src="${item.star}" height="15" width="15">
-                        </div>
-                        <div class="col-4 text-right smallpurp">
-                            ${item.duration}
-                        </div>
-                    </div>
-            </div>
+      }
+  
+      $("#inner-carousel").append(`
+      <div class="carousel-item ${active} px-5">
+      <div class="row d-flex justify-content-center align-items-center flex-md-row flex-column">
+        <div class="col-12 col-sm-4 col-md-4 col-lg-3 d-flex justify-content-sm-end justify-content-center ">
+          <img src="${item.pic_url}" class="rounded-circle carousel-img" id="carousel-img-1" alt="...">
         </div>
-    </div>
-</div>
-<div class="row justify-content-center">
-        <div class="col">
-            <div class="mx-1">
-                <div class="card mx-auto my-3">
-                    <img class="card-img-top" src="${item.thumb_url}" width="245" height="154">
-                    <img class="play-img" src="images/play.png" width="64" height="64">
-                        <div class="card-body">
-                            <p class="fs-16heavy">"${item.title}"</p><span class="text-secondary font-14 font-weight-normal">${item["sub-title"]}</span>
-                                <div class="row justify-content-start font-14 smallpurp">
-                                    <div class="col-2">
-                                        <img src="${item.author_pic_url}" class="rounded-circle" width="30" height="30">
-                                    </div>
-                                    <div class="col mt-1">
-                                    ${item.author}
-                                    </div>
-                                </div>
-                    <div class="row justify-content-between mt-2">
-                        <div class="col">
-                            <img src="${item.star}" height="15" width="15">
-                        </div>
-                        <div class="col-4 text-right smallpurp">
-                            ${item.duration}
-                        </div>
-                    </div>
-            </div>
+        <div class="col pr-5 mr-4 pt-5 pt-sm-0">
+          <p class="font-italic" id="text_1"> «${item.text}</p>
+          <h6 class="font-weight-bold m-0 mb-1" id="person_1">${item.name}</h6>
+          <p class="font-italic m-0" id="title_1">${item.title}</p>
         </div>
-    </div>
-</div>
-<div class="row justify-content-center">
-        <div class="col">
-            <div class="mx-1">
-                <div class="card mx-auto my-3">
-                    <img class="card-img-top" src="${item.thumb_url}" width="245" height="154">
-                    <img class="play-img" src="images/play.png" width="64" height="64">
-                        <div class="card-body">
-                            <p class="fs-16heavy">"${item.title}"</p><span class="text-secondary font-14 font-weight-normal">${item["sub-title"]}</span>
-                                <div class="row justify-content-start font-14 smallpurp">
-                                    <div class="col-2">
-                                        <img src="${item.author_pic_url}" class="rounded-circle" width="30" height="30">
-                                    </div>
-                                    <div class="col mt-1">
-                                    ${item.author}
-                                    </div>
-                                </div>
-                    <div class="row justify-content-between mt-2">
-                        <div class="col">
-                            <img src="${item.star}" height="15" width="15">
-                        </div>
-                        <div class="col-4 text-right smallpurp">
-                            ${item.duration}
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-    `);
-}
-
-function getTutData () {
-    var settings = {
-        "url": "https://smileschool-api.hbtn.info/popular-tutorials",
-        "method": "GET",
-        "content-type": "application/javascript",
-        "beforeSend": loader(true),
-        "success": function(result) {
-            $("#popularcarousel").empty();
-            loader(false, "#popularcarousel");
-            result.forEach((item, x) => {
-                tutCarousel(item, x);
-            });
-        },
-    };
-    $.ajax(settings).done(function(response) {
-        let response1 = response[0];
-        let response2 = response[1];
-        tutCarousel(response1, "#popularcarousel");
-    });
-}
-$(document).ready(function() {
-    getTutData();
-})
-
-//LATEST VIDEOS
-function latestCarousel (item, x) {
+      </div>
+    </div>`);
+  }
+  
+  function popularVideoLoader(item, i, element) {
     let active = ""
-    if (!x) {
-        active = "active";
+    if (!i) {
+      active = "active";
     }
-    $("#latestcarousel").append(`<div class="carousel-item ${active}">
+  
+    let stars = '';
+  
+    for (let i = 0; i < item.star; i++) {
+      stars += '<img src="images/star_on.png" width="15" height="15" alt="Star on">';
+    }
+    for (let j = 0; j < (5 - item.star); j++) {
+      stars += '<img src="images/star_off.png" width="15" height="15" alt="Star off">';
+    }
+  
+    $(element).append(`
+    <div class="carousel-item ${active}" id="carousel-video">
     <div class="row justify-content-center">
-        <div class="col">
-            <div class="mx-1">
-                <div class="card mx-auto my-3">
-                    <img class="card-img-top" src="${item.thumb_url}" width="245" height="154">
-                    <img class="play-img" src="images/play.png" width="64" height="64">
-                        <div class="card-body">
-                            <p class="fs-16heavy">"${item.title}"</p><span class="text-secondary font-14 font-weight-normal">${item["sub-title"]}</span>
-                                <div class="row justify-content-start font-14 smallpurp">
-                                    <div class="col-2">
-                                        <img src="${item.author_pic_url}" class="rounded-circle" width="30" height="30">
-                                    </div>
-                                    <div class="col mt-1">
-                                    ${item.author}
-                                    </div>
-                                </div>
-                    <div class="row justify-content-between mt-2">
-                        <div class="col">
-                            <img src="${item.star}" height="15" width="15">
-                        </div>
-                        <div class="col-4 text-right smallpurp">
-                            ${item.duration}
-                        </div>
-                    </div>
+    <div class="col-md-3">
+      <div class="card mb-2 video-card">
+        <img class="card-img-top" src="${item.thumb_url}"
+          alt="Card image cap">
+        <img class="play-button" src="images/play.png" alt="Play" width="64" height="64">
+        <div class="card-body">
+          <h4 class="card-title font-weight-bold">${item.title}</h4>
+          <p class="card-text">${item["sub-title"]}</p>
+          <div class="row justify-content-start fontsize-14 carousel-purple">
+            <div class="col-2">
+              <img class="rounded-circle" src="${item.author_pic_url}" width="30" height="30" alt="Profile 4">
             </div>
-        </div>
-    </div>
-</div>
-<div class="row justify-content-center">
-        <div class="col">
-            <div class="mx-1">
-                <div class="card mx-auto my-3">
-                    <img class="card-img-top" src="${item.thumb_url}" width="245" height="154">
-                    <img class="play-img" src="images/play.png" width="64" height="64">
-                        <div class="card-body">
-                            <p class="fs-16heavy">"${item.title}"</p><span class="text-secondary font-14 font-weight-normal">${item["sub-title"]}</span>
-                                <div class="row justify-content-start font-14 smallpurp">
-                                    <div class="col-2">
-                                        <img src="${item.author_pic_url}" class="rounded-circle" width="30" height="30">
-                                    </div>
-                                    <div class="col mt-1">
-                                    ${item.author}
-                                    </div>
-                                </div>
-                    <div class="row justify-content-between mt-2">
-                        <div class="col">
-                            <img src="${item.star}" height="15" width="15">
-                        </div>
-                        <div class="col-4 text-right smallpurp">
-                            ${item.duration}
-                        </div>
-                    </div>
+            <div class="col mt-1">${item.author}</div>
+          </div>
+          <div class="row justify-content-between mt-2">
+            <div class="col">
+              ${stars}
             </div>
+            <div class="col-4 text-right carousel-purple">${item.duration}</div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<div class="row justify-content-center">
-        <div class="col">
-            <div class="mx-1">
-                <div class="card mx-auto my-3">
-                    <img class="card-img-top" src="${item.thumb_url}" width="245" height="154">
-                    <img class="play-img" src="images/play.png" width="64" height="64">
-                        <div class="card-body">
-                            <p class="fs-16heavy">"${item.title}"</p><span class="text-secondary font-14 font-weight-normal">${item["sub-title"]}</span>
-                                <div class="row justify-content-start font-14 smallpurp">
-                                    <div class="col-2">
-                                        <img src="${item.author_pic_url}" class="rounded-circle" width="30" height="30">
-                                    </div>
-                                    <div class="col mt-1">
-                                    ${item.author}
-                                    </div>
-                                </div>
-                    <div class="row justify-content-between mt-2">
-                        <div class="col">
-                            <img src="${item.star}" height="15" width="15">
-                        </div>
-                        <div class="col-4 text-right smallpurp">
-                            ${item.duration}
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
-    `);
-}
-
-function getLatestData () {
-    var settings = {
-        "url": "https://smileschool-api.hbtn.info/latest-videos",
-        "method": "GET",
-        "content-type": "application/javascript",
-        "beforeSend": loader(true),
-        "success": function(result) {
-            $("#latestcarousel").empty();
-            loader(false, "#latestcarousel");
-            result.forEach((item, x) => {
-                latestCarousel(item, x);
-            });
-        },
-    };
-
-    $.ajax(settings).done(function(response) {
-        let response1 = response[0];
-        let response2 = response[1];
-        latestCarousel(response1, "#latestcarousel");
+  </div>
+  </div>
+    `)
+  
+  }
+  function getLastestVideos() {
+    $.ajax({
+      url: "https://smileschool-api.hbtn.info/latest-videos",
+      method: "GET",
+      contentType: "application/json",
+      beforeSend: isLoaded(true, "#carousel-latest-video"),
+      success: function(result) {
+        console.log("Bye")
+        $("#carousel-latest-video").empty();
+        isLoaded(false, "#carousel-latest-video"),
+        result.forEach((item, i) => {
+          console.log("hello");
+          popularVideoLoader(item, i, "#carousel-latest-video");
+      });
+    }
+  });
+  }
+  
+  function getPopularVideos() {
+        $.ajax({
+          url: "https://smileschool-api.hbtn.info/popular-tutorials",
+          method: "GET",
+          contentType: "application/json",
+          beforeSend: isLoaded(true, "#carousel-video"),
+          success: function(result) {
+            $("#carousel-video").empty();
+            isLoaded(false, "#carousel-video"),
+            result.forEach((item, i) => {
+              popularVideoLoader(item, i, "#carousel-video");
+          });
+        }
     });
-}
-$(document).ready(function() {
-    getLatestData();
-})
+  }
+  
+  function getCarouselData() {
+        $.ajax({
+          url: "https://smileschool-api.hbtn.info/quotes",
+          method: "GET",
+          contentType: "application/json",
+          beforeSend: isLoaded(true, "#inner-carousel"),
+          success: function(result) {
+            $("#inner-carousel").empty();
+            isLoaded(false, "#inner-carousel"),
+            result.forEach((item, i) => {
+              carouselLoader(item, i);
+          });
+        }
+    });
+  }
+  
+  $(document).ready(function() {
+    getCarouselData();
+    getPopularVideos();
+    getLastestVideos();
+  })
